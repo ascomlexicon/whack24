@@ -2,6 +2,7 @@ nav {
     text-align: center;
     background-color: #79d6fb;
     padding: 10px;
+    padding-top: 20px;
 }
 
 nav > ul > li {
@@ -18,5 +19,10 @@ nav > ul > li:hover {
 nav > ul > li > a {
     color: black;
     font-weight: bold;
+    text-decoration: initial;
+}
+
+nav > ul > li > a:hover {
+    color: initial;
     text-decoration: initial;
 }
