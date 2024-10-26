@@ -1,4 +1,4 @@
 .env
-*.csv
 .venv/
+assets/
 __pycache__/
