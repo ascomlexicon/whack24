@@ -7,9 +7,9 @@
     <h1>Search Matches</h1><br>
 
     <form>
-        <div class="inline-input">
-            <input type="search" name="query" id="query" class="form-control" 
-                placeholder="Search by opposition team..." {% if query %} value="{{ query }}" {% endif %}>
+        <div style="display: flex;">
+            <input type="search" name="query" id="query" class="form-control" style="margin-right: 5px;"
+            placeholder="Search by opposition team..." {% if query %} value="{{ query }}" {% endif %}>
             <input type="submit" class="btn btn-outline-success" value="Search">
         </div>
     </form>

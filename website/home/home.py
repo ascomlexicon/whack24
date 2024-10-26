@@ -8,7 +8,7 @@ frame: pd.DataFrame = clean_dataframe(create_dataframe("assets/dataset.csv"))
 
 @home.route("/")
 def index():
-    return render_template("index.html", data=["this", "is", "data"])
+    return render_template("index.html")
 
 @home.route("/search")
 def search():
