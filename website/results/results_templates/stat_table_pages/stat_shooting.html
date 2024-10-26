@@ -1,1 +1,50 @@
-<p>SHOOTING</p>
+
+<div align="center">
+    <table style="width: 60%; text-align: center; margin-top: 20px" class="table">
+        <tr>
+            <td>Number of Goals Scored</td>
+            <td>{{ frame["goals_scored"][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Expected Goals</td>
+            <td>{{ frame['np_xg'][i] }}</td>
+        </tr>
+        <tr>
+            <td>Number of Shots</td>
+            <td>{{ frame['shots'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Number of Shots on Target</td>
+            <td>{{ frame['shots_on_target'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Expected Goals Within 8 Seconds of Corner</td>
+            <td>{{ frame['xg_within_8_seconds_of_corner'][i] }}</td>
+        </tr>
+        <tr>
+            <td>Shots Within 8 Seconds of Corner</td>
+            <td>{{ frame['shots_within_8_seconds_of_corner'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Goals Within 8 Seconds of Corner</td>
+            <td>{{ frame['goals_within_8_seconds_of_corner'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Expected Goals Within 8 Seconds of Indirect Freekick</td>
+            <td>{{ frame['xg_within_8_seconds_of_indirect_free_kick'][i] }}</td>
+        </tr>
+        <tr>
+            <td>Shots Within 8 Seconds of Indirect Freekick</td>
+            <td>{{ frame['shots_within_8_seconds_of_indirect_free_kick'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Goals Within 8 Seconds of Indirect Freekick</td>
+            <td>{{ frame['goals_within_8_seconds_of_indirect_free_kick'][i] | int }}</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Left is shot accuracy -->
+<div class="left-percent" style="bottom:350px">{{ frame['shots_on_target'][i] / frame['shots'][i] }}%</div>
+<!-- RIght is conversion rate -->
+<div class="right-percent" style="bottom:350px">{{ frame['goals_scored'][i] / frame['shots_on_target'][i] }}%</div>

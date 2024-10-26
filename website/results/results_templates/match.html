@@ -22,11 +22,13 @@
     <h2>Coventry Stats</h2>
 
     <div class="stat-box-menu">
+
         <a href="/results/match/{{ match.get('match_id') }}?tab=summary" {% if tab == "summary" %} class="active" {% endif %}>Summary</a>
         <a href="/results/match/{{ match.get('match_id') }}?tab=shooting" {% if tab == "shooting" %} class="active" {% endif %}>Shooting</a>
         <a href="/results/match/{{ match.get('match_id') }}?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
         <a href="/results/match/{{ match.get('match_id') }}?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
-        <a href="/results/match/{{ match.get('match_id') }}?tab=extra" {% if tab == "extra" %} class="active" {% endif %}>Extra</a>
+        <a href="/results/match/{{ match.get('match_id') }}?tab=defense" {% if tab == "defense" %} class="active" {% endif %}>Defense</a>
+
     </div>
     <div class="stat-box-content">
         <!-- Load each page here -->
@@ -38,8 +40,8 @@
             {% include "stat_table_pages/stat_passing.html" %}
         {% elif tab == "opposition" %}
             {% include "stat_table_pages/stat_opposition.html" %}
-        {% elif tab == "extra" %}
-            {% include "stat_table_pages/stat_extra.html" %}
+        {% elif tab == "defense" %}
+            {% include "stat_table_pages/stat_defense.html" %}
         {% endif %}
     </div>
 

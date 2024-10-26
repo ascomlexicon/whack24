@@ -1,1 +1,20 @@
-<p>PASSING</p>
+<div align="center">
+    <table style="width: 60%; text-align: center; margin-top: 70px" class="table">
+        <tr>
+            <td>Passes</td>
+            <td>{{ frame["passes"][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Completed Passes Into Box</td>
+            <td>{{ frame['completed_passes_into_the_box'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Passes Per Defensive Action</td>
+            <td>{{ frame['ppda'][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Completed Passes and Carries Into Final Third</td>
+            <td>{{ frame['completed_passes_and_carries_into_final_third'][i] | int }}</td>
+        </tr>
+    </table>
+</div>
