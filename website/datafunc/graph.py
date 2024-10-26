@@ -1,12 +1,12 @@
 import pandas as pd
 import matplotlib as plt
-import preparation as prep
+from ..datafunc.preparation import create_dataframe, clean_dataframe
 import query as query
 
 
 def main():
-    df = prep.create_dataframe('assets/dataset.csv')
-    prep.clean_dataframe(df)
+    df = create_dataframe('assets/dataset.csv')
+    clean_dataframe(df)
 
 if __name__ == "__main__":
     main()
