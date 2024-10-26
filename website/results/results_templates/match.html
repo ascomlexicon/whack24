@@ -26,7 +26,7 @@
         <a href="/results/match/{{ frame['match_id'][i] }}?tab=shooting" {% if tab == "shooting" %} class="active" {% endif %}>Shooting</a>
         <a href="/results/match/{{ frame['match_id'][i] }}?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
         <a href="/results/match/{{ frame['match_id'][i] }}?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
-        <a href="/results/match/{{ frame['match_id'][i] }}?tab=extra" {% if tab == "extra" %} class="active" {% endif %}>Extra</a>
+        <a href="/results/match/{{ frame['match_id'][i] }}?tab=defense" {% if tab == "defense" %} class="active" {% endif %}>Defense</a>
     </div>
     <div class="stat-box-content">
         <!-- Load each page here -->
@@ -38,8 +38,8 @@
             {% include "stat_table_pages/stat_passing.html" %}
         {% elif tab == "opposition" %}
             {% include "stat_table_pages/stat_opposition.html" %}
-        {% elif tab == "extra" %}
-            {% include "stat_table_pages/stat_extra.html" %}
+        {% elif tab == "defense" %}
+            {% include "stat_table_pages/stat_defense.html" %}
         {% endif %}
     </div>
 

@@ -1,1 +1,16 @@
-<p>OPPOSITION</p>
+<div align="center">
+    <table style="width: 60%; text-align: center; margin-top: 100px" class="table">
+        <tr>
+            <td>Number of Shots</td>
+            <td>{{ frame["opposition_shots"][i] | int }}</td>
+        </tr>
+        <tr>
+            <td>Number of Shots on Target</td>
+            <td>{{ frame['opposition_shots_on_target'][i] | int}}</td>
+        </tr>
+        <tr>
+            <td>Number of Passes</td>
+            <td>{{ frame['ppda'][i] | int }}</td>
+        </tr>
+    </table>
+</div>
