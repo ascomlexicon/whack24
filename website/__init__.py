@@ -8,9 +8,10 @@ def create_app():
 
     from .results.results import results
     from .home.home import home
+    from .season.season import season
 
     app.register_blueprint(results, url_prefix="/results")
     app.register_blueprint(home, url_prefix="/")
-
+    app.register_blueprint(season, url_prefix="/season")
 
     return app
