@@ -16,5 +16,5 @@ def _get_match(id):
 def match_page(id):
     # Get match from ID and pass in to template.
     tab = request.args.get("tab") or "summary"
-    print(frame["Opposition"][_get_match(id)])
-    return render_template("match.html", tab=tab, i=_get_match(id), frame=frame)
+    # return render_template("match.html", tab=tab, i=_get_match(id), frame=frame)
+    return render_template("match.html", tab=tab, match=getMatch(float(id), frame), i=_get_match(id), frame=frame)

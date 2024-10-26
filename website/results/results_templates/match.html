@@ -4,29 +4,31 @@
 
 {% block content %}
 
-    <h1>Match Against <i>{{ frame["opposition_team"][i] }}</i></h1><br>
+    <h1>Match Against <i>{{ match.get("opposition_team") }}</i></h1><br>
 
     <table class="title-table">
         <tr>
             <td class="title-table-left">Coventry City</td>
             <td class="title-table-centre">vs</td>
-            <td class="title-table-right">{{ frame["opposition_team"][i] }}</td>
+            <td class="title-table-right">{{ match.get("opposition_team") }}</td>
         </tr>
         <tr>
-            <td class="title-table-left">{{ frame["goals_scored"][i] | int }}</td>
+            <td class="title-table-left">{{ match.get("goals_scored") | int }}</td>
             <td class="title-table-centre"> : </td>
-            <td class="title-table-right">{{ frame["goals_conceded"][i] | int }}</td>
+            <td class="title-table-right">{{ match.get("goals_conceded") | int }}</td>
         </tr>
     </table>
 
     <h2>Coventry Stats</h2>
 
     <div class="stat-box-menu">
-        <a href="/results/match/{{ frame['match_id'][i] }}?tab=summary" {% if tab == "summary" %} class="active" {% endif %}>Summary</a>
-        <a href="/results/match/{{ frame['match_id'][i] }}?tab=shooting" {% if tab == "shooting" %} class="active" {% endif %}>Shooting</a>
-        <a href="/results/match/{{ frame['match_id'][i] }}?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
-        <a href="/results/match/{{ frame['match_id'][i] }}?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
-        <a href="/results/match/{{ frame['match_id'][i] }}?tab=defense" {% if tab == "defense" %} class="active" {% endif %}>Defense</a>
+
+        <a href="/results/match/{{ match.get('match_id') }}?tab=summary" {% if tab == "summary" %} class="active" {% endif %}>Summary</a>
+        <a href="/results/match/{{ match.get('match_id') }}?tab=shooting" {% if tab == "shooting" %} class="active" {% endif %}>Shooting</a>
+        <a href="/results/match/{{ match.get('match_id') }}?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
+        <a href="/results/match/{{ match.get('match_id') }}?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
+        <a href="/results/match/{{ match.get('match_id') }}?tab=defense" {% if tab == "defense" %} class="active" {% endif %}>Defense</a>
+
     </div>
     <div class="stat-box-content">
         <!-- Load each page here -->
