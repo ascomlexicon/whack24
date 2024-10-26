@@ -36,7 +36,7 @@ def search():
                 if filter == True:                                
                     search_results.append(i)
     else:
-        search_results = list(range(frame.size))
+        search_results = list(range(len(frame)))
     # <WIP: apply filters (home/away, season, win/loss)>
 
     return render_template("search.html", indices=search_results, frame=frame, query=query)
