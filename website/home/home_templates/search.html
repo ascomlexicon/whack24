@@ -8,13 +8,14 @@
 
     <form>
         <div class="inline-input">
-            <input type="search" name="query" id="query" class="form-control" required 
+            <input type="search" name="query" id="query" class="form-control" 
                 placeholder="Search by opposition team..." {% if query %} value="{{ query }}" {% endif %}>
             <input type="submit" class="btn btn-outline-success" value="Search">
         </div>
     </form>
 
     <br><hr><br>
+    {{ frame.size }}
 
     <table class="table table-bordered">
         <thead class="table-dark">
@@ -25,14 +26,31 @@
         </thead>
         <tbody>
             {% for i in indices %}
-                <tr>
-                    <td>{{ frame["opposition_team"][i] }}</td>
-                    <td>WIP</td>
-                    <td>WIP</td>
-                    <td>WIP</td>
-                </tr>
+                    <tr onclick="window.location.href = `/results/match/{{ frame['match_id'][i] }}`">
+                        <td>{{ frame["opposition_team"][i] }}</td>
+                        <td>{{ frame["season_name"][i] }}</td>
+                        <td>
+                            {% if frame["location"][i] == "A" %}
+                                Away
+                            {% else %}
+                                Home
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if frame["match_outcome"][i] == "L" %}
+                                Loss
+                            {% elif frame["match_outcome"][i] == "W" %}
+                                Win
+                            {% else %}
+                                Draw
+                            {% endif %}
+                        </td>
+                    </tr>
             {% else %}
-                <td>WIP</td>
+                <td>No search results.</td>
+                <td></td>
+                <td></td>
+                <td></td>
             {% endfor %}
         </tbody>
     </table>

@@ -18,7 +18,7 @@ def search():
 
     if query: # If the user has entered a search query...
         for i in frame.index:
-            if fuzz.ratio(query, frame["opposition_team"][i]) >= 85 or fuzz.ratio(query, frame["Opposition"][i]) >= 85:
+            if fuzz.ratio(query, frame["opposition_team"][i]) >= 75 or fuzz.ratio(query.lower(), str(frame["Opposition"][i]).lower()) >= 75:
                 location = request.args.get("location")
                 season = request.args.get("season")
                 result = request.args.get("result")
@@ -35,7 +35,8 @@ def search():
 
                 if filter == True:                                
                     search_results.append(i)
-    
+    else:
+        search_results = list(range(frame.size))
     # <WIP: apply filters (home/away, season, win/loss)>
 
     return render_template("search.html", indices=search_results, frame=frame, query=query)
