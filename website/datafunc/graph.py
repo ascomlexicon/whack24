@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib as plt
 from ..datafunc.preparation import create_dataframe, clean_dataframe
-import query as query
 
 
 def main():

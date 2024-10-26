@@ -1,5 +1,4 @@
 import pandas as pd
-import preparation as prep
 
 
 def getMatch(oppostion, dataframe):
