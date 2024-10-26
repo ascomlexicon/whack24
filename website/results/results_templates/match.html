@@ -6,18 +6,8 @@
 
     <h1>Match Against <i>{{ match.get("opposition_team") }}</i></h1><br>
 
-    <table class="title-table">
-        <tr>
-            <td class="title-table-left">Coventry City</td>
-            <td class="title-table-centre">vs</td>
-            <td class="title-table-right">{{ match.get("opposition_team") }}</td>
-        </tr>
-        <tr>
-            <td class="title-table-left">{{ match.get("goals_scored") | int }}</td>
-            <td class="title-table-centre"> - </td>
-            <td class="title-table-right">{{ match.get("goals_conceded") | int }}</td>
-        </tr>
-    </table>
+    <p class="title-info">Coventry City vs {{ match.get("opposition_team") }}</p>
+    <p class="title-info">{{ match.get("goals_scored") | int }} - {{ match.get("goals_conceded") | int }}</p>
 
     <div class="stat-box-menu">
 
