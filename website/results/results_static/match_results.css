@@ -31,6 +31,7 @@
     border-top-right-radius: 0px;
     width: 97.7%;
     height: 350px;
+    overflow: scroll;
 }
 
 .stat-box-menu > a {
@@ -53,4 +54,18 @@
 .stat-box-menu .active {
     border: 2px solid black;
     font-style: italic;
+}
+
+.left-percent {
+    float: left;
+    bottom: 50%;
+    position: relative;
+    margin-left: 20px;
+}
+
+.right-percent {
+    float: right;
+    bottom: 50%;
+    position: relative;
+    margin-right: 20px;
 }

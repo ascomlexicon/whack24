@@ -30,6 +30,17 @@
     </div>
     <div class="stat-box-content">
         <!-- Load each tab here -->
+        {% if tab == "summary" %}
+            {% include "stat_table_pages/stat_summary.html" %}
+        {% elif tab == "shooting" %}
+            {% include "stat_table_pages/stat_shooting.html" %}
+        {% elif tab == "passing" %}
+            {% include "stat_table_pages/stat_passing.html" %}
+        {% elif tab == "opposition" %}
+            {% include "stat_table_pages/stat_opposition.html" %}
+        {% elif tab == "extra" %}
+            {% include "stat_table_pages/stat_extra.html" %}
+        {% endif %}
     </div>
 
     <br><hr><br>
