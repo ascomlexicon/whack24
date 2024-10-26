@@ -3,10 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="{{ url_for('home.static', filename='favicon.ico') }}"></link>
+
+        <!-- CSS Stylesheets -->
+        <link rel="stylesheet" href="{{ url_for('home.static', filename='base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('home.static', filename='nav.css') }}">
+
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
         
+        {% include "base/nav.html" %}
+
+        {% block second_nav %}{% endblock %}
+
+        <div class="page">
+            {% include "base/messages.html" %}
+            {% block content %}{% endblock %}
+            <br><br>
+        </div>
         
+        {% include "base/footer.html" %}
+
     </body>
 </html>

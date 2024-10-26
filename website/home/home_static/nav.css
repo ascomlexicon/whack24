@@ -1,0 +1,27 @@
+nav > ul > li {
+    display: inline;
+    /* padding: 10px; */
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin: 0px 20px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav > ul > li > a {
+    /* color: rgb(132, 122, 64); */
+    color: black;
+    font-weight: bold;
+    text-decoration: initial;
+}
+
+nav > ul > li:hover {
+    background-color: rgb(172, 231, 238);
+}
+
+nav {
+    background-color: #79d6fb;
+    padding: 10px;
+}
