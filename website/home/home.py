@@ -8,11 +8,11 @@ def index():
 
 @home.route("/search")
 def search():
-    query = request.args.get("search")
+    query = request.args.get("query")
     search_results = []
     if query: # If the user has entered a search query...
         search_results = [] # ...load the matching matches to display.
     
-    # <WIP: apply filters>
+    # <WIP: apply filters (home/away, season, win/loss)>
 
-    return render_template("search.html", results=search_results)
+    return render_template("search.html", results=search_results, query=query)

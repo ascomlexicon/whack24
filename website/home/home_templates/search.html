@@ -4,6 +4,14 @@
 
 {% block content %}
 
-    <h1>Search Matches</h1>
+    <h1>Search Matches</h1><br>
+
+    <form>
+        <div class="inline-input">
+            <input type="search" name="query" id="query" class="form-control" required 
+                placeholder="Search by opposition team..." {% if query %} value="{{ query }}" {% endif %}>
+            <input type="submit" class="btn btn-outline-success" value="Search">
+        </div>
+    </form>
 
 {% endblock %}

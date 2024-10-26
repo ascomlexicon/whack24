@@ -10,7 +10,7 @@ def create_app():
     from .home.home import home
 
     app.register_blueprint(results, url_prefix="/results")
-    app.register_blueprint(home, url_prefix="/home")
+    app.register_blueprint(home, url_prefix="/")
 
 
     return app
