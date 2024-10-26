@@ -29,7 +29,7 @@
         <a href="/results/match/{{ frame['match_id'][i] }}?tab=extra" {% if tab == "extra" %} class="active" {% endif %}>Extra</a>
     </div>
     <div class="stat-box-content">
-        <!-- Load each tab here -->
+        <!-- Load each page here -->
         {% if tab == "summary" %}
             {% include "stat_table_pages/stat_summary.html" %}
         {% elif tab == "shooting" %}
