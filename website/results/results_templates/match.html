@@ -4,29 +4,29 @@
 
 {% block content %}
 
-    <h1>Match Against <i>OpponentTeam</i></h1><br>
+    <h1>Match Against <i>{{ frame["opposition_team"][i] }}</i></h1><br>
 
     <table class="title-table">
         <tr>
             <td class="title-table-left">Coventry City</td>
             <td class="title-table-centre">vs</td>
-            <td class="title-table-right">OpponentTeam</td>
+            <td class="title-table-right">{{ frame["opposition_team"][i] }}</td>
         </tr>
         <tr>
-            <td class="title-table-left">CoventryScore</td>
+            <td class="title-table-left">{{ frame["goals_scored"][i] | int }}</td>
             <td class="title-table-centre"> : </td>
-            <td class="title-table-right">OpponentScore</td>
+            <td class="title-table-right">{{ frame["goals_conceded"][i] | int }}</td>
         </tr>
     </table>
 
     <h2>Coventry Stats</h2>
 
     <div class="stat-box-menu">
-        <a href="/results/match?tab=summary" {% if tab == "summary" %} class="active" {% endif %}>Summary</a>
-        <a href="/results/match?tab=shooting" {% if tab == "shooting" %} class="active" {% endif %}>Shooting</a>
-        <a href="/results/match?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
-        <a href="/results/match?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
-        <a href="/results/match?tab=extra" {% if tab == "extra" %} class="active" {% endif %}>Extra</a>
+        <a href="/results/match/{{ frame['match_id'][i] }}?tab=summary" {% if tab == "summary" %} class="active" {% endif %}>Summary</a>
+        <a href="/results/match/{{ frame['match_id'][i] }}?tab=shooting" {% if tab == "shooting" %} class="active" {% endif %}>Shooting</a>
+        <a href="/results/match/{{ frame['match_id'][i] }}?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
+        <a href="/results/match/{{ frame['match_id'][i] }}?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
+        <a href="/results/match/{{ frame['match_id'][i] }}?tab=extra" {% if tab == "extra" %} class="active" {% endif %}>Extra</a>
     </div>
     <div class="stat-box-content">
         <!-- Load each tab here -->
