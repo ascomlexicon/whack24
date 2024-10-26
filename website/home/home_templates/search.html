@@ -24,26 +24,16 @@
             <th>Result</th>
         </thead>
         <tbody>
-            {% for result in results %}
+            {% for i in indices %}
                 <tr>
-                    <td>WIP</td>
+                    <td>{{ frame["opposition_team"][i] }}</td>
                     <td>WIP</td>
                     <td>WIP</td>
                     <td>WIP</td>
                 </tr>
+            {% else %}
+                <td>WIP</td>
             {% endfor %}
-            <tr>
-                <td>WIP</td>
-                <td>WIP</td>
-                <td>WIP</td>
-                <td>WIP</td>
-            </tr>
-            <tr>
-                <td>WIP</td>
-                <td>WIP</td>
-                <td>WIP</td>
-                <td>WIP</td>
-            </tr>
         </tbody>
     </table>
 
