@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from dataconstants import IGNORE_COLUMNS
+from ..datafunc.dataconstants import IGNORE_COLUMNS
 
 def create_dataframe(filepath):
     dataframe = pd.read_csv(filepath, index_col=0)

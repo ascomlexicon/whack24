@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, request
 from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
+from ..datafunc.preparation import clean_dataframe, create_dataframe
+import pandas as pd
 
 home = Blueprint("home", __name__, template_folder="home_templates", static_folder="home_static")
+frame: pd.DataFrame = clean_dataframe(create_dataframe("assets/dataset.csv"))
 
 @home.route("/")
 def index():
@@ -11,34 +13,30 @@ def index():
 @home.route("/search")
 def search():
     query = request.args.get("query")
-    matches = []
     search_results = []
     filter = True
 
     if query: # If the user has entered a search query...
-        matches = [] # ...load the matching matches to display.
-        for match in matches:
-            if fuzz.ratio(query, match.opponent_name) >= 90:
+        for i in frame.index:
+            if fuzz.ratio(query, frame["opposition_team"][i]) >= 85 or fuzz.ratio(query, frame["Opposition"][i]) >= 85:
                 location = request.args.get("location")
                 season = request.args.get("season")
                 result = request.args.get("result")
 
                 if location != None:
-                    if location != match.location:
+                    if location != frame["location"][i]:
                         filter = False
                 if season != None:
-                    if season != match.season_name:
+                    if season != frame["season_name"][i]:
                         filter = False
                 if result != None:
-                    if result != match.match_outcome:
+                    if result != frame["match_outcomes"][i]:
                         filter = False
 
                 if filter == True:                                
-                    search_results.append(match)
-                
-    
+                    search_results.append(i)
     
     # <WIP: apply filters (home/away, season, win/loss)>
 
-    return render_template("search.html", results=search_results, query=query)
+    return render_template("search.html", indices=search_results, frame=frame, query=query)
 
