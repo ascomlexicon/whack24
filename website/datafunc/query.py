@@ -11,12 +11,3 @@ def getMatch(matchId, dataframe):
 def getGoalsScoredBySeason(dataframe):
     return (dataframe.get(["goals_scored", "season_name"]))
 
-
-def main():
-    df = prep.create_dataframe("assets/dataset.csv")
-    dff = getGoalsScoredBySeason(df)
-    print(dff)
-
-
-if __name__ == "__main__":
-    main()
