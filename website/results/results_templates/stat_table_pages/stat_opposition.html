@@ -2,15 +2,15 @@
     <table style="width: 60%; text-align: center; margin-top: 100px" class="table">
         <tr>
             <td>Number of Shots</td>
-            <td>{{ frame["opposition_shots"][i] | int }}</td>
+            <td>{{ match.get("opposition_shots") | int }}</td>
         </tr>
         <tr>
             <td>Number of Shots on Target</td>
-            <td>{{ frame['opposition_shots_on_target'][i] | int}}</td>
+            <td>{{ match.get("opposition_shots_on_target") | int}}</td>
         </tr>
         <tr>
             <td>Number of Passes</td>
-            <td>{{ frame['ppda'][i] | int }}</td>
+            <td>{{ match.get("ppda") | int }}</td>
         </tr>
     </table>
 </div>

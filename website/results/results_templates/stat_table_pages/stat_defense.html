@@ -1,9 +1,51 @@
 <div align="center">
-    <table style="width: 60%; text-align: center; margin-top: 100px" class="table">
+    <table style="width: 60%; text-align: center; margin-top: 20px" class="table">
         <tr>
             <td>Number of Pressures</td>
-            <td>{{ frame["pressures"][i] | int }}</td>
+            <td>{{ match.get("pressures") | int }}</td>
         </tr>
+        <tr>
+            <td>Number of Pressures Regains</td>
+            <td>{{ match.get("pressure_regains") | int }}</td>
+        </tr>
+        <tr>
+            <td>Number of Fouls</td>
+            <td>{{ match.get("fouls") | int }}</td>
+        </tr>
+        <tr>
+            <td>Number of Tackles</td>
+            <td>{{ match.get("tackles") | int }}</td>
+        </tr>
+        <tr>
+            <td>Number of Yellow Cards</td>
+            <td>{{ match.get("yellow_cards") | int }}</td>
+        </tr>
+        <tr>
+            <td>Number of Goals Conceded</td>
+            <td>{{ match.get("goals_conceded") | int }}</td>
+        </tr>
+        <tr>
+            <td>Expected Number of Goals Conceded</td>
+            <td>{{ match.get("np_xg_conceded") }}</td>
+        </tr>
+        <tr>
+            <td>Expected Number of Goals Conceded Within 8 Seconds of Corner</td>
+            <td>{{ match.get("xg_conceded_within_8_seconds_of_corner") }}</td>
+        </tr>
+        <tr>
+            <td>Shots Conceded Within 8 Seconds of Indirect Freekick</td>
+            <td>{{ match.get("shots_conceded_within_8_seconds_of_indirect_free_kick
+                ") | int }}</td>
+        </tr>
+        <tr>
+            <td>Expected Number of Goals Conceded Within 8 Seconds of Indirect Freekick</td>
+            <td>{{ match.get("xg_conceded_within_8_seconds_of_indirect_free_kick") }}</td>
+        </tr>
+        <tr>
+            <td>Goals Conceded Within 8 Seconds of Indirect Freekick</td>
+            <td>{{ match.get("goals_conceded_within_8_seconds_of_indirect_free_kick") | int }}</td>
+        </tr>
+        
     
     </table>
 </div>
