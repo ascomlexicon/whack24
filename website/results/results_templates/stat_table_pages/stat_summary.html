@@ -7,27 +7,27 @@
     <table style="width: 60%; text-align: center; margin-top: 20px" class="table">
         <tr>
             <td>Number of Shots</td>
-            <td>{{ frame["shots"][i] | int }}</td>
+            <td>{{ match.get("shots") | int }}</td>
         </tr>
         <tr>
             <td>Shots on Target</td>
-            <td>{{ frame['shots_on_target'][i] | int }}</td>
+            <td>{{ match.get('shots_on_target') | int }}</td>
         </tr>
         <tr>
             <td>Number of Passes</td>
-            <td>{{ frame['passes'][i] | int }}</td>
+            <td>{{ match.get('passes') | int }}</td>
         </tr>
         <tr>
             <td>Number of Fouls</td>
-            <td>{{ frame['fouls'][i] | int }}</td>
+            <td>{{ match.get('fouls') | int }}</td>
         </tr>
         <tr>
             <td>Number of Tackles</td>
-            <td>{{ frame['tackles'][i] | int }}</td>
+            <td>{{ match.get('tackles') | int }}</td>
         </tr>
         <tr>
             <td>Number of Yellow Cards</td>
-            <td>{{ frame['yellow_cards'][i] | int }}</td>
+            <td>{{ match.get('yellow_cards') | int }}</td>
         </tr>
     </table>
 </div>

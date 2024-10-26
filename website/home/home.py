@@ -8,7 +8,7 @@ frame: pd.DataFrame = clean_dataframe(create_dataframe("assets/dataset.csv"))
 
 @home.route("/")
 def index():
-    return render_template("index.html", data=["this", "is", "data"])
+    return render_template("index.html")
 
 @home.route("/search")
 def search():
@@ -36,7 +36,7 @@ def search():
                 if filter == True:                                
                     search_results.append(i)
     else:
-        search_results = list(range(frame.size))
+        search_results = list(range(len(frame)))
     # <WIP: apply filters (home/away, season, win/loss)>
 
     return render_template("search.html", indices=search_results, frame=frame, query=query)
