@@ -21,5 +21,7 @@ def clean_dataframe(dataframe):
     clean_frame["location"] = np.where(
         clean_frame["location"].str.contains("away"), clean_frame["location"].str.replace("away", "A"), clean_frame["location"].str.replace("home", "H")
     )
+    
+    clean_frame = clean_frame.round(2)
 
     return clean_frame.reset_index(drop=True)

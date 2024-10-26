@@ -5,6 +5,5 @@ IGNORE_COLUMNS = [
     "team",
     "Accelerations",
     "Decelerations",
-    "Opposition",
     "date"
 ]
