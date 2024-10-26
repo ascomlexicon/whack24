@@ -1,1 +1,1 @@
-    df = prep.create_dataframe("assets\dataset.csv")
+    prep.clean_dataframe(df)
