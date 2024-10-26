@@ -1,10 +1,10 @@
 from flask import Flask
-from os import getenv
+from os import environ
 
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = getenv("SECRET_KEY")
+    app.config['SECRET_KEY'] = environ.get("SECRET_KEY")
 
     from .results.results import results
     from .home.home import home
