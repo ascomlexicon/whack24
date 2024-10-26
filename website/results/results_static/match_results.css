@@ -1,0 +1,56 @@
+.title-table-left {
+    text-align: right; 
+    padding-right: 5px;
+}
+
+.title-table-centre {
+    width: 10px;
+    text-align: center;
+}
+
+.title-table-right {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.title-table {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.title-table td {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+.stat-box-content {
+    border: 1px solid black;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    width: 97.7%;
+    height: 350px;
+}
+
+.stat-box-menu > a {
+    border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 19.3%;
+    display: inline-block;
+    text-align: center;
+    margin: 0px;
+    color: initial;
+    text-decoration: inherit;
+}
+
+.stat-box-menu > a:hover {
+    color: initial;
+    text-decoration: inherit;
+}
+
+.stat-box-menu .active {
+    border: 2px solid black;
+    font-style: italic;
+}
