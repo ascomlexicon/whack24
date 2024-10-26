@@ -1,9 +1,12 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template
 
 season = Blueprint("season", __name__, template_folder="season_templates", static_folder="season_static")
 
 @season.route("/")
-def season_page():
-    search_results=[]
+def season_home():
+    return render_template("season_home.html")
 
-    return render_template("season.html", results=search_results)
+
+@season.route("/season/<int:seas>")
+def season_page(seas):
+    return render_template("season.html", seas=seas)
