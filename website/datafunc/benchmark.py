@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from sklearn import linear_model
-import preparation as p
 
 def benchmark_range_for_season(dataframe, column, season):
     if column not in list(dataframe.columns):
@@ -69,7 +68,3 @@ def column_correlation(dataframe, columnX, columnY):
     
     return correlation, coefficients
     
-if __name__ == "__main__":
-    df = p.clean_dataframe(p.create_dataframe("assets/dataset.csv"))
-    
-    print(column_correlation(df, "final_third_possession", "np_xg"))

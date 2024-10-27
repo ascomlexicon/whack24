@@ -5,7 +5,8 @@ from ..datafunc.dataconstants import IGNORE_COLUMNS
 def create_dataframe(filepath):
     dataframe = pd.read_csv(filepath, index_col=0)
     
-    dataframe = dataframe.drop(columns=IGNORE_COLUMNS)
+    if filepath == "assets/dataset.csv":
+        dataframe = dataframe.drop(columns=IGNORE_COLUMNS)
     
     return dataframe
 

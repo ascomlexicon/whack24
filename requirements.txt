@@ -1,8 +1,10 @@
-pandas==2.2.3
 numpy==2.1.0
-scipy==1.14.0
-scikit-learn==1.5.2
-matplotlib==3.9.2
 Flask==3.0.3
-python-dotenv==1.0.1
+scipy==1.14.0
+pandas==2.2.3
+folium==0.17.0
+matplotlib==3.9.2
 fuzzywuzzy==0.18.0
+scikit-learn==1.5.2
+python-dotenv==1.0.1
+
