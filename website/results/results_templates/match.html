@@ -40,7 +40,8 @@
     <div class="box">
         <!-- Starting players -->
         <table class="lineup-table" align="center">
-            
+            <tr><td></td></tr>
+            <tr><td></td></tr>
             {% for row in lineup[:4] | reverse %}
                 <tr>
                     {% if row | length == 1 %}
@@ -49,7 +50,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{{ row[0]["player_id"] }}</td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -60,9 +61,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{{ row[0]["player_id"] }}</td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[1]["player_id"] }}</td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -70,44 +71,44 @@
                     {% elif row | length == 3 %}
                         <td></td> 
                         <td></td>
-                        <td>{{ row[0]["player_id"] }}</td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
                         <td></td>
                         <td></td>
-                        <td>{{ row[1]["player_id"] }}</td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
                         <td></td>
                         <td></td>
-                        <td>{{ row[2]["player_id"] }}</td>
+                        <td><div>{{ row[2]["player_id"] }}</div></td>
                         <td></td>
                         <td></td>
                     {% elif row | length == 4 %}
                         <td></td> 
-                        <td>{{ row[0]["player_id"] }}</td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[1]["player_id"] }}</td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{{ row[2]["player_id"] }}</td>
+                        <td><div>{{ row[2]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[3]["player_id"] }}</td>
+                        <td><div>{{ row[3]["player_id"] }}</div></td>
                         <td></td>
                     {% elif row | length == 5 %}
                         <td></td> 
-                        <td>{{ row[0]["player_id"] }}</td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[1]["player_id"] }}</td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[2]["player_id"] }}</td>
+                        <td><div>{{ row[2]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[3]["player_id"] }}</td>
+                        <td><div>{{ row[3]["player_id"] }}</div></td>
                         <td></td>
-                        <td>{{ row[4]["player_id"] }}</td>
+                        <td><div>{{ row[4]["player_id"] }}</div></td>
                         <td></td>
                     {% endif %}
                 </tr>
-
+                <tr><td></td></tr>
             {% endfor %}
-            
+            <tr><td></td></tr>
         </table>
 
         <br><hr style="border-bottom: 1px solid black;"><br>
