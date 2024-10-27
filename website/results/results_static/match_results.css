@@ -50,3 +50,21 @@
     position: relative;
     margin-right: 20px;
 }
+
+.box {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.lineup-table {
+    text-align: center; 
+    width: 50%;
+    background-color: #3f9b0b;
+    border-radius: 10px;
+}
+
+.lineup-table td { 
+    padding: 20px 0px;
+}
