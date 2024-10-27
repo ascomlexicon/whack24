@@ -151,72 +151,6 @@ def graphWinStats(dataframe):
     
     return buf
 
-#returns a donut chart of the goals scored and goals conceded per match
-def donutGoalsPerMatch(dataframe, matchid):
-    goals = list(getGoalStatsFromMatch(dataframe, matchid))
-    label = ['Goals Scored', 'Goals Conceded']
-
-    plt.pie(goals, labels=label)
-    circle=plt.Circle( (0,0), 0.7, color='white')
-    p=plt.gcf()
-    p.gca().add_artist(circle)  
-
-    plt.title("Goals Scored vs Goals Conceded") 
-
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    
-    return buf
-
-#returns a donut chart of the shots stats
-
-def donutShotsPerMatch(dataframe, matchid):
-
-    shots = list(getShotStatsFromMatch(dataframe, matchid))
-
-    shots[0] = shots[0] - shots[1]
-
-    label = [shots[0], shots[1]]
-
-
-    plt.pie(shots, labels=label, colors=donutColors)
-
-    circle=plt.Circle( (0,0), 0.7, color='white')
-
-    p=plt.gcf()
-
-    p.gca().add_artist(circle)   
-
-
-    plt.title("Shots Taken vs Shots Missed")
-
-
-    buf = BytesIO()
-
-    fig.savefig(buf, format="png")
-    return buf
-
-
-#returns a donut chart of the opposition shots stats
-
-def donutOppShotsPerMatch(dataframe, matchid):
-
-    shots = list(getShotStatsFromMatch(dataframe, matchid))
-
-    shots[0] = shots[0] - shots[1]
-
-    label = [shots[0], shots[1]]
-    plt.pie(shots, labels=label, colors=donutColors)
-
-    circle=plt.Circle( (0,0), 0.7, color='white')
-    p=plt.gcf()
-
-    p.gca().add_artist(circle)   
-    plt.title("Opposition Shots Taken vs Opposition Shots Missed")
-    buf = BytesIO()
-
-    fig.savefig(buf, format="png")
-    return buf
 
 def graphGoalsBreakdown(dataframe):
 
@@ -273,43 +207,6 @@ def graphShotsOnTargBreakdown(dataframe):
     buf = BytesIO()
     fig.savefig(buf, format="png")
     return buf
-
-
-def donutPossesionPerMatch(dataframe, matchid):
-
-    shots = list(getPossesionFromMatch(dataframe, matchid))
-
-    label = [shots[0], shots[1]]
-    plt.pie(shots, labels=label, colors=donutColors)
-
-    circle=plt.Circle( (0,0), 0.7, color='white')
-
-    p=plt.gcf()
-    p.gca().add_artist(circle)   
-    plt.title("Possession Percentage")
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    return buf
-
-
-def donutPossesionThirdPerMatch(dataframe, matchid):
-
-    shots = list(getPossesionFromMatch(dataframe, matchid))
-
-    label = [shots[0], shots[1]]
-    plt.pie(shots, labels=label, colors=donutColors)
-
-    circle=plt.Circle( (0,0), 0.7, color='white')
-    p=plt.gcf()
-    p.gca().add_artist(circle)   
-    plt.title("Final Third Possession Percentage")
-
-
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    return buf
-
-
 
 
 def dateIntToString(dates):
@@ -374,3 +271,159 @@ def formatPlot(plot, dictionary, labels, labelNames, title, ylabel):
 def setPlotLabels(ax, title, ylabel):
     ax.set_title = title
     ax.set_ylabel = ylabel
+
+
+
+
+def donutGoalsPerMatch(dataframe, matchid):
+
+    goals = list(getGoalStatsFromMatch(dataframe, matchid))
+
+    label = ['Goals Scored', 'Goals Conceded']
+
+
+    plt.pie(goals, labels=label)
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+
+    p=plt.gcf()
+
+    p.gca().add_artist(circle)  
+
+
+    plt.title("Goals Scored vs Goals Conceded") 
+
+
+    buf = BytesIO()
+
+    fig.savefig(buf, format="png")
+
+    
+
+    return buf
+
+
+#returns a donut chart of the shots stats
+
+
+def donutShotsPerMatch(dataframe, matchid):
+
+
+    shots = list(getShotStatsFromMatch(dataframe, matchid))
+
+
+    shots[0] = shots[0] - shots[1]
+
+
+    label = [shots[0], shots[1]]
+
+
+    plt.pie(shots, labels=label, colors=donutColors)
+
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+
+
+    p=plt.gcf()
+
+
+    p.gca().add_artist(circle)   
+
+
+    plt.title("Shots Taken vs Shots Missed")
+
+
+    buf = BytesIO()
+
+
+    fig.savefig(buf, format="png")
+
+    return buf
+
+
+#returns a donut chart of the opposition shots stats
+
+
+def donutOppShotsPerMatch(dataframe, matchid):
+
+
+    shots = list(getShotStatsFromMatch(dataframe, matchid))
+
+
+    shots[0] = shots[0] - shots[1]
+
+
+    label = [shots[0], shots[1]]
+
+    plt.pie(shots, labels=label, colors=donutColors)
+
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+
+    p=plt.gcf()
+
+
+    p.gca().add_artist(circle)   
+
+    plt.title("Opposition Shots Taken vs Opposition Shots Missed")
+
+    buf = BytesIO()
+
+
+    fig.savefig(buf, format="png")
+
+    return buf
+
+
+def donutPossesionPerMatch(dataframe, matchid):
+
+
+    shots = list(getPossesionFromMatch(dataframe, matchid))
+
+
+    label = [shots[0], shots[1]]
+
+    plt.pie(shots, labels=label, colors=donutColors)
+
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+
+
+    p=plt.gcf()
+
+    p.gca().add_artist(circle)   
+
+    plt.title("Possession Percentage")
+
+    buf = BytesIO()
+
+    fig.savefig(buf, format="png")
+
+    return buf
+
+
+def donutPossesionThirdPerMatch(dataframe, matchid):
+
+
+    shots = list(getPossesionFromMatch(dataframe, matchid))
+
+
+    label = [shots[0], shots[1]]
+
+    plt.pie(shots, labels=label, colors=donutColors)
+
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+
+    p=plt.gcf()
+
+    p.gca().add_artist(circle)   
+
+    plt.title("Final Third Possession Percentage")
+
+
+    buf = BytesIO()
+
+    fig.savefig(buf, format="png")
+
+    return buf

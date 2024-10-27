@@ -36,23 +36,38 @@ def getWinStats(dataframe):
     return (dataframe.get(["match_outcome", "season_name"]))
 
 def getGoalStatsFromMatch(dataframe, id):
+
     match = getMatch(id, dataframe)
+
     return match['goals_scored'], match['goals_conceded']
 
+
 def getShotStatsFromMatch(dataframe, id):
+
     match = getMatch(id, dataframe)
+
     return match['shots'], match['shots_on_target']
 
+
 def getOppShotStatsFromMatch(dataframe, id):
+
     match = getMatch(id, dataframe)
+
     return match['opposition_shots'], match['opposition_shots_on_target']
 
+
 def getPossesionFromMatch(dataframe, id):
+
     match = getMatch(id, dataframe)
+
     return match['possession'], (100- match['possession'])
 
 
 def getPossesionThirdFromMatch(dataframe, id):
+
     match = getMatch(id, dataframe)
+
     return match['final_third_possession'], (100- match['final_third_possession'])
+
+
 

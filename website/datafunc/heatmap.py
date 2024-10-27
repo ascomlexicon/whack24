@@ -29,3 +29,6 @@ def create_average_heatmap(column):
 
     uk_map.add_child(plugins.HeatMap(heat_data))
     uk_map.save('map.html')
+
+if __name__ == "__main__":
+    create_average_heatmap("goals_scored")
