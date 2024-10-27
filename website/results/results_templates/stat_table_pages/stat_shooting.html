@@ -45,6 +45,6 @@
 </div>
 
 <!-- Left is shot accuracy -->
-<div class="left-percent" style="bottom:350px">{{ '%0.2f' % ((frame['shots_on_target'][i] / frame['shots'][i]) * 100) | float }}%</div>
+<div class="left-percent" style="bottom:350px">{{ '%0.2f' % ((match.get('shots_on_target') / match.get('shots')) * 100) | float }}%</div>
 <!-- RIght is conversion rate -->
-<div class="right-percent" style="bottom:350px">{{ '%0.2f' % ((frame['goals_scored'][i] / frame['shots_on_target'][i]) * 100) | float}}%</div>
+<div class="right-percent" style="bottom:350px">{{ '%0.2f' % ((match.get('goals_scored') / match.get('shots_on_target')) * 100) | float }}%</div>

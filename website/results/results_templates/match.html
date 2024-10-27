@@ -41,6 +41,103 @@
 
     <h2>Lineup</h2>
 
+    <div class="box">
+        <!-- Starting players -->
+        <table class="lineup-table" align="center">
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            {% for row in lineup[:4] | reverse %}
+                <tr>
+                    {% if row | length == 1 %}
+                        <td></td> 
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    {% elif row | length == 2 %}
+                        <td></td> 
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    {% elif row | length == 3 %}
+                        <td></td> 
+                        <td></td>
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
+                        <td></td>
+                        <td></td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
+                        <td></td>
+                        <td></td>
+                        <td><div>{{ row[2]["player_id"] }}</div></td>
+                        <td></td>
+                        <td></td>
+                    {% elif row | length == 4 %}
+                        <td></td> 
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><div>{{ row[2]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[3]["player_id"] }}</div></td>
+                        <td></td>
+                    {% elif row | length == 5 %}
+                        <td></td> 
+                        <td><div>{{ row[0]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[1]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[2]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[3]["player_id"] }}</div></td>
+                        <td></td>
+                        <td><div>{{ row[4]["player_id"] }}</div></td>
+                        <td></td>
+                    {% endif %}
+                </tr>
+                <tr><td></td></tr>
+            {% endfor %}
+            <tr><td></td></tr>
+        </table>
+
+        <br><hr style="border-bottom: 1px solid black;"><br>
+
+        <h3>Subs and Unused</h3>
+
+        <!-- Unused and subs -->
+        <table class="table">
+            <thead>
+                <th>Player ID</th>
+                <th>Position</th>
+                <th>Time Played (mins)</th>
+            </thead>
+            <tbody>
+                {% for i in lineup[4] + lineup[5] %}
+                    <tr>
+                        <td>{{ i["player_id"] }}</td>
+                        <td>{{ i["squad_role"] }}</td>
+                        <td>{{'%0.2f' % ( i["minutes_played"]) | float }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
     <br><hr><br>
 
     <h2>Recommended Improvements</h2>
