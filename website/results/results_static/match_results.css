@@ -57,3 +57,12 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+.lineup-table {
+    text-align: center; 
+    width: 50%;
+}
+
+.lineup-table td { 
+    padding: 20px 0px;
+}
