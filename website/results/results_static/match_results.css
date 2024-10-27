@@ -50,3 +50,10 @@
     position: relative;
     margin-right: 20px;
 }
+
+.box {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
