@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from preparation import create_dataframe, clean_dataframe
-import query as q
 import numpy as np
-import benchmark as bench
+from ..datafunc.preparation import create_dataframe, clean_dataframe
+from ..datafunc.query import *
+from ..datafunc.benchmark import *
 
 seasonColours = ["red", "yellow", "green", "blue"]
 donutColors = ["green", "red"]
