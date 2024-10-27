@@ -61,6 +61,8 @@
 .lineup-table {
     text-align: center; 
     width: 50%;
+    background-color: #3f9b0b;
+    border-radius: 10px;
 }
 
 .lineup-table td { 
