@@ -10,7 +10,7 @@
     border-radius: 15px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    width: 97.7%;
+    width: 99.7%;
     height: 350px;
     overflow: scroll;
 }
@@ -19,7 +19,7 @@
     border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    width: 19.3%;
+    width: 16.3%;
     display: inline-block;
     text-align: center;
     margin: 0px;

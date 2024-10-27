@@ -46,3 +46,13 @@ def getShotStatsFromMatch(dataframe, id):
 def getOppShotStatsFromMatch(dataframe, id):
     match = getMatch(id, dataframe)
     return match['opposition_shots'], match['opposition_shots_on_target']
+
+def getPossesionFromMatch(dataframe, id):
+    match = getMatch(id, dataframe)
+    return match['possession'], (100- match['possession'])
+
+
+def getPossesionThirdFromMatch(dataframe, id):
+    match = getMatch(id, dataframe)
+    return match['final_third_possession'], (100- match['final_third_possession'])
+

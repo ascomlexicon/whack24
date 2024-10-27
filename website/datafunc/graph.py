@@ -1,9 +1,11 @@
+from io import BytesIO
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from ..datafunc.preparation import create_dataframe, clean_dataframe
 from ..datafunc.query import *
 from ..datafunc.benchmark import *
+from matplotlib.figure import Figure
 
 seasonColours = ["red", "yellow", "green", "blue"]
 donutColors = ["green", "red"]
@@ -18,10 +20,14 @@ def graphGoalsBySeason(dataframe):
     fig, ax = plt.subplots()
     ax.bar(formatSeasons(dataframe), agg_goals_list, color=seasonColours)
 
-    plt.title("Shots per Season")
+    plt.title("Goals per Season")
 
-    plt.show()
+    # plt.show()
 
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of total shots per season. Requires dataframe containing seasons and shots
 #tip : use getShotsPerSeason query in query.py
@@ -35,7 +41,12 @@ def graphShotsPerSeason(dataframe):
 
     plt.title("Shots per Season")
 
-    plt.show()
+
+    #plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of total shots on target per season. Requires dataframe containing seasons and shots on target
 #tip : use getShotsTargPerSeason query in query.py
@@ -49,7 +60,10 @@ def graphShotsTargPerSeason(dataframe):
 
     plt.title("Shots on Target per Season")
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of goals conceded per season. Requires dataframe containing seasons and shots on target
 #tip : use getGoalsConcPerSeason query in query.py
@@ -63,7 +77,10 @@ def graphGoalsConcededPerSeason(dataframe):
 
     plt.title("Goals Conceded per Season")
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of total passes per season. Requires dataframe containing seasons and shots on target
 #tip : use getPassesBySeason query in query.py
@@ -77,7 +94,10 @@ def graphPassesPerSeason(dataframe):
 
     plt.title("Number of Passes per Season")
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of total completed passes into box per season. Requires dataframe containing seasons and shots on target
 #tip : use getPassesInBoxBySeason query in query.py
@@ -91,7 +111,10 @@ def graphBoxPassesPerSeason(dataframe):
 
     plt.title("Passes Into Box per Season")
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of total completed passes into box per season. Requires dataframe containing seasons and shots on target
 #tip : use getTacklesPerSeason query in query.py
@@ -105,7 +128,10 @@ def graphTacklesPerSeason(dataframe):
 
     plt.title("Tackles per Season")
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #plots graph of match outcomes per season. Requires dataframe containing seasons and shots on target
 #tip : use graphWinStats query in query.py
@@ -120,14 +146,15 @@ def graphWinStats(dataframe):
 
     plt.title("Overall Match Outcomes")
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #returns a donut chart of the goals scored and goals conceded per match
 def donutGoalsPerMatch(dataframe, matchid):
-    goals = list(q.getGoalStatsFromMatch(dataframe, matchid))
+    goals = list(getGoalStatsFromMatch(dataframe, matchid))
     label = ['Goals Scored', 'Goals Conceded']
-
-    print(goals)
 
     plt.pie(goals, labels=label)
     circle=plt.Circle( (0,0), 0.7, color='white')
@@ -136,77 +163,152 @@ def donutGoalsPerMatch(dataframe, matchid):
 
     plt.title("Goals Scored vs Goals Conceded") 
 
-    plt.show()
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    
+    return buf
 
 #returns a donut chart of the shots stats
+
 def donutShotsPerMatch(dataframe, matchid):
-    shots = list(q.getShotStatsFromMatch(dataframe, matchid))
+
+    shots = list(getShotStatsFromMatch(dataframe, matchid))
+
     shots[0] = shots[0] - shots[1]
+
     label = [shots[0], shots[1]]
 
-    print(shots)
 
     plt.pie(shots, labels=label, colors=donutColors)
+
     circle=plt.Circle( (0,0), 0.7, color='white')
+
     p=plt.gcf()
+
     p.gca().add_artist(circle)   
+
 
     plt.title("Shots Taken vs Shots Missed")
 
-    plt.show()
+
+    buf = BytesIO()
+
+    fig.savefig(buf, format="png")
+    return buf
 
 
 #returns a donut chart of the opposition shots stats
+
 def donutOppShotsPerMatch(dataframe, matchid):
-    shots = list(q.getShotStatsFromMatch(dataframe, matchid))
+
+    shots = list(getShotStatsFromMatch(dataframe, matchid))
+
     shots[0] = shots[0] - shots[1]
+
     label = [shots[0], shots[1]]
-
-    print(shots)
-
     plt.pie(shots, labels=label, colors=donutColors)
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+    p=plt.gcf()
+
+    p.gca().add_artist(circle)   
+    plt.title("Opposition Shots Taken vs Opposition Shots Missed")
+    buf = BytesIO()
+
+    fig.savefig(buf, format="png")
+    return buf
+
+def graphGoalsBreakdown(dataframe):
+
+
+    agg_goal = aggregateSum(dataframe, 'season_name')            #aggregate goals scored by season
+
+    agg_goal_total = tuple(agg_goal['goals_scored'].tolist())
+
+
+    labels = tuple(getSeasons(dataframe))
+
+    goal_data = {}
+
+    makeDictionary(dataframe, goal_data)
+
+
+    fig, ax = plt.subplots(layout='constrained')
+
+
+    ax.set_ylabel("Num. Goals")
+
+    formatPlot(ax, goal_data, labels, formatSeasons(dataframe),"Breakdown of Goals per Season", "Num. Goals")
+
+
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    return buf
+
+
+#plots grouped bar chart of min, median and max shots on target for a particular season
+
+def graphShotsOnTargBreakdown(dataframe):
+
+
+    agg_shotTarg = aggregateSum(dataframe, 'season_name')
+
+    agg_shotTarg_total = tuple(agg_shotTarg['goals_scored'].tolist())
+
+
+    labels = tuple(getSeasons(dataframe))
+
+    shotTarg_data = {}
+
+    makeDictionary(dataframe, shotTarg_data)
+
+
+    fig, ax = plt.subplots(layout='constrained')
+
+
+    ax.set_ylabel("Num. Goals")
+
+    formatPlot(ax, shotTarg_data, labels, formatSeasons(dataframe),"Breakdown of Shots on Target per Season", "Num. Shots on Targ.")
+
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    return buf
+
+
+def donutPossesionPerMatch(dataframe, matchid):
+
+    shots = list(getPossesionFromMatch(dataframe, matchid))
+
+    label = [shots[0], shots[1]]
+    plt.pie(shots, labels=label, colors=donutColors)
+
+    circle=plt.Circle( (0,0), 0.7, color='white')
+
+    p=plt.gcf()
+    p.gca().add_artist(circle)   
+    plt.title("Possession Percentage")
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    return buf
+
+
+def donutPossesionThirdPerMatch(dataframe, matchid):
+
+    shots = list(getPossesionFromMatch(dataframe, matchid))
+
+    label = [shots[0], shots[1]]
+    plt.pie(shots, labels=label, colors=donutColors)
+
     circle=plt.Circle( (0,0), 0.7, color='white')
     p=plt.gcf()
     p.gca().add_artist(circle)   
-
-    plt.title("Opposition Shots Taken vs Opposition Shots Missed")
-
-    plt.show()
+    plt.title("Final Third Possession Percentage")
 
 
-#plots grouped bar chart of min, median and max goals for a particular season
-def graphGoalsBreakdown(dataframe):
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    return buf
 
-    agg_goal = aggregateSum(dataframe, 'season_name')            #aggregate goals scored by season
-    agg_goal_total = tuple(agg_goal['goals_scored'].tolist())
-
-    labels = tuple(getSeasons(dataframe))
-    goal_data = {}
-    makeDictionary(dataframe, goal_data)
-
-    fig, ax = plt.subplots(layout='constrained')
-
-    ax.set_ylabel("Num. Goals")
-    formatPlot(ax, goal_data, labels, formatSeasons(dataframe),"Breakdown of Goals per Season", "Num. Goals")
-
-    plt.show()
-
-#plots grouped bar chart of min, median and max shots on target for a particular season
-def graphShotsOnTargBreakdown(dataframe):
-
-    agg_shotTarg = aggregateSum(dataframe, 'season_name')
-    agg_shotTarg_total = tuple(agg_shotTarg['goals_scored'].tolist())
-
-    labels = tuple(getSeasons(dataframe))
-    shotTarg_data = {}
-    makeDictionary(dataframe, shotTarg_data)
-
-    fig, ax = plt.subplots(layout='constrained')
-
-    ax.set_ylabel("Num. Goals")
-    formatPlot(ax, shotTarg_data, labels, formatSeasons(dataframe),"Breakdown of Shots on Target per Season", "Num. Shots on Targ.")
-
-    plt.show()
 
 
 
@@ -234,9 +336,9 @@ def getOutcomes(dataframe):
     return dataframe['match_outcome'].unique()
 
 def getWinStats(dataframe):
-    num_wins = (dataframe['match_outcome'].value_counts()['won'])
-    num_losses = (dataframe['match_outcome'].value_counts()['lost'])
-    num_draws = (dataframe['match_outcome'].value_counts()['draw'])
+    num_wins = (dataframe['match_outcome'].value_counts()['W'])
+    num_losses = (dataframe['match_outcome'].value_counts()['L'])
+    num_draws = (dataframe['match_outcome'].value_counts()['D'])
 
     return [num_wins, num_losses, num_draws]
 
@@ -245,7 +347,7 @@ def makeDictionary(dataframe, dictionary):
     mean_arr = []
     max_arr = []
     for season in getSeasons(dataframe):
-        ma, mean, mi = bench.benchmark_range_for_season(dataframe, 'goals_scored', season)
+        ma, mean, mi = benchmark_range_for_season(dataframe, 'goals_scored', season)
         min_arr.append(mi)
         mean_arr.append(mean)
         max_arr.append(ma)
