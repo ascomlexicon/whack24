@@ -7,14 +7,6 @@ import benchmark as bench
 
 seasonColours = ["red", "yellow", "green", "blue"]
 donutColors = ["green", "red"]
-barWidth = 0.25
-
-
-def main():
-    df = clean_dataframe(create_dataframe('assets/dataset.csv'))
-
-    graphShotsOnTargBreakdown(df)
-
 
 
 #plots graph of total goals per season. Requires dataframe containing seasons and goals
@@ -280,6 +272,3 @@ def formatPlot(plot, dictionary, labels, labelNames, title, ylabel):
 def setPlotLabels(ax, title, ylabel):
     ax.set_title = title
     ax.set_ylabel = ylabel
-
-if __name__ == "__main__":
-    main()
