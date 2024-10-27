@@ -16,6 +16,7 @@
         <a href="/results/match/{{ match.get('match_id') }}?tab=passing" {% if tab == "passing" %} class="active" {% endif %}>Passing</a>
         <a href="/results/match/{{ match.get('match_id') }}?tab=opposition" {% if tab == "opposition" %} class="active" {% endif %}>Opposition</a>
         <a href="/results/match/{{ match.get('match_id') }}?tab=defense" {% if tab == "defense" %} class="active" {% endif %}>Defense</a>
+        <a href="/results/match/{{ match.get('match_id') }}?tab=physical" {% if tab == "physical" %} class="active" {% endif %}>Physical</a>
 
     </div>
     <div class="stat-box-content">
@@ -30,6 +31,9 @@
             {% include "stat_table_pages/stat_opposition.html" %}
         {% elif tab == "defense" %}
             {% include "stat_table_pages/stat_defense.html" %}
+        {% elif tab == "physical" %}
+            {% include "stat_table_pages/stat_physical.html" %}
+                
         {% endif %}
     </div>
 

@@ -1,0 +1,30 @@
+
+<div align="center">
+    <table style="width: 60%; text-align: center; margin-top: 20px" class="table">
+        <tr>
+            <td>Distance Travelled</td>
+            <td>{{ match.get("Distance") }}</td>
+        </tr>
+        <tr>
+            <td>HSR</td>
+            <td>{{ match.get("HSR") }}</td>
+        </tr>
+        <tr>
+            <td>Sprint</td>
+            <td>{{ match.get("Sprint") }}</td>
+        </tr>
+        <tr>
+            <td>Acceleration</td>
+            <td>{{ match.get("Acceleration") }} </td>
+        </tr>
+        <tr>
+            <td>Deceleration</td>
+            <td>{{ match.get("Deceleration")}}</td>
+        </tr>
+        <tr>
+            <td>Jumps</td>
+            <td>{{ match.get("Jumps") | int }}</td>
+        </tr>
+        
+    </table>
+</div>
