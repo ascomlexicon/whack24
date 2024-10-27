@@ -1,8 +1,8 @@
 import folium
 from folium import plugins
 from folium.plugins import HeatMap
-from teamstats import average_stats_against_opposition
-from preparation import create_dataframe, clean_dataframe
+from ..datafunc.teamstats import average_stats_against_opposition
+from ..datafunc.preparation import create_dataframe, clean_dataframe
 
 def create_average_heatmap(column):
     coords = create_dataframe("assets/coords.csv")
