@@ -14,6 +14,8 @@ def match_page(id):
     # Get match from ID and pass in to template.
     tab = request.args.get("tab") or "summary"
     match = getMatch(float(id), frame)
+
+    
     return render_template("match.html", tab=tab, match=match, lineup=format_lineup(match.get("lineup")))
 
 

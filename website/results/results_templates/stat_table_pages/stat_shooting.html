@@ -46,5 +46,6 @@
 
 <!-- Left is shot accuracy -->
 <div class="left-percent" style="bottom:350px">{{ '%0.2f' % ((match.get('shots_on_target') / match.get('shots')) * 100) | float }}%</div>
+<img src="data:image/png;base64,{{ data[5] }}" width="300" height="200" style="position: absolute; left: 200px; top: 300px;">
 <!-- RIght is conversion rate -->
 <div class="right-percent" style="bottom:350px">{{ '%0.2f' % ((match.get('goals_scored') / match.get('shots_on_target')) * 100) | float }}%</div>
